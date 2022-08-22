@@ -1,0 +1,60 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "IrisClassifier",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/IrisClassifier/bin/Debug/net6.0/IrisClassifier.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/IrisClassifier",
+            "stopAtEntry": false,
+            "console": "internalConsole"
+        },
+        {
+            "name": "IrisClustering",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/IrisClustering/bin/Debug/net6.0/IrisClustering.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/IrisClustering",
+            "stopAtEntry": false,
+            "console": "internalConsole"
+        },
+        {
+            "name": "EnergyUsage",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/EnergyUsage/bin/Debug/net6.0/EnergyUsage.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/EnergyUsage",
+            "stopAtEntry": false,
+            "console": "internalConsole"
+        },
+        {
+            "name": "SpamDetector",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/SpamDetector/bin/Debug/net6.0/SpamDetector.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/SpamDetector",
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
+        {
+            "name": "ProductRecommendation",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/ProductRecommendation/bin/Debug/net6.0/ProductRecommendation.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/ProductRecommendation",
+            "console": "internalConsole",
+            "stopAtEntry": false
+        }
+    ]
+}
