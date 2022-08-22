@@ -1,0 +1,132 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\14194\\Desktop\\Projects\\ml-app-dev-student-col822-main\\ml-app-dev-student-col822-main\\IrisClustering\\IrisClustering.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\14194\\Desktop\\Projects\\ml-app-dev-student-col822-main\\ml-app-dev-student-col822-main\\Common\\Common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\14194\\Desktop\\Projects\\ml-app-dev-student-col822-main\\ml-app-dev-student-col822-main\\Common\\Common.csproj",
+        "projectName": "Common",
+        "projectPath": "C:\\Users\\14194\\Desktop\\Projects\\ml-app-dev-student-col822-main\\ml-app-dev-student-col822-main\\Common\\Common.csproj",
+        "packagesPath": "C:\\Users\\14194\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\14194\\Desktop\\Projects\\ml-app-dev-student-col822-main\\ml-app-dev-student-col822-main\\Common\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\14194\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.ML": {
+              "target": "Package",
+              "version": "[1.7.1, )"
+            },
+            "Microsoft.ML.Recommender": {
+              "target": "Package",
+              "version": "[0.19.1, )"
+            },
+            "SharpZipLib": {
+              "target": "Package",
+              "version": "[1.3.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\14194\\Desktop\\Projects\\ml-app-dev-student-col822-main\\ml-app-dev-student-col822-main\\IrisClustering\\IrisClustering.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\14194\\Desktop\\Projects\\ml-app-dev-student-col822-main\\ml-app-dev-student-col822-main\\IrisClustering\\IrisClustering.csproj",
+        "projectName": "IrisClustering",
+        "projectPath": "C:\\Users\\14194\\Desktop\\Projects\\ml-app-dev-student-col822-main\\ml-app-dev-student-col822-main\\IrisClustering\\IrisClustering.csproj",
+        "packagesPath": "C:\\Users\\14194\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\14194\\Desktop\\Projects\\ml-app-dev-student-col822-main\\ml-app-dev-student-col822-main\\IrisClustering\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\14194\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\14194\\Desktop\\Projects\\ml-app-dev-student-col822-main\\ml-app-dev-student-col822-main\\Common\\Common.csproj": {
+                "projectPath": "C:\\Users\\14194\\Desktop\\Projects\\ml-app-dev-student-col822-main\\ml-app-dev-student-col822-main\\Common\\Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
