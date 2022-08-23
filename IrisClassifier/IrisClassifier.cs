@@ -82,17 +82,18 @@ namespace IrisClassifier
             // Create Trainer
             // 1: SdcaMaxiumEntropy - preferred
             // 2: Map output column back to keycolumn
-            // Trainer = MlContext.MulticlassClassification.Trainers
-            //     .SdcaMaximumEntropy(labelColumnName: "KeyColumn", featureColumnName: "Features")
-            //     .Append(MlContext.Transforms.Conversion
-            //         .MapKeyToValue(outputColumnName: nameof(IrisData.Label), inputColumnName: "KeyColumn"));
-
-
+            // maximum entrophy 
             Trainer = MlContext.MulticlassClassification.Trainers
-                .LbfgsMaximumEntropy(labelColumnName: "KeyColumn", 
-                featureColumnName: "Features", exampleWeightColumnName: null, 1, 2, 1, 5, true)
+                .SdcaMaximumEntropy(labelColumnName: "KeyColumn", featureColumnName: "Features")
                 .Append(MlContext.Transforms.Conversion
                     .MapKeyToValue(outputColumnName: nameof(IrisData.Label), inputColumnName: "KeyColumn"));
+
+            // LBFGS Max Entropy 
+            // Trainer = MlContext.MulticlassClassification.Trainers
+            //     .LbfgsMaximumEntropy(labelColumnName: "KeyColumn", 
+            //     featureColumnName: "Features", exampleWeightColumnName: null, 1, 2, 1, 5, true)
+            //     .Append(MlContext.Transforms.Conversion
+            //         .MapKeyToValue(outputColumnName: nameof(IrisData.Label), inputColumnName: "KeyColumn"));
 
             // Add trainer to pipeline
             var trainingPipeLine = dataProcessPipeline.Append(Trainer);
