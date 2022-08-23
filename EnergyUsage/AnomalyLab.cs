@@ -35,6 +35,7 @@ namespace EnergyUsage
             IEnumerable<SpikePrediction> predictions =
                 MlContext.Data.CreateEnumerable<SpikePrediction>(transformedData, false);
 
+            // This algorythm needs standardized time segments 
             var colCDN = FullDataView.GetColumn<float>("ConsumptionDiffNormalized").ToArray();
             var colTime = FullDataView.GetColumn<DateTime>("time").ToArray();
 
@@ -60,11 +61,26 @@ namespace EnergyUsage
 
         public override void SetupAndTrainModel()
         {
+            // Configure th Estimator
+            const int PValueSize = 30;
+            const int SeasonalitySize = 30;
+            const int TraingSize = 90;
+            const double ConfidenceInterval = 98;
 
             string outputColumnName = nameof(SpikePrediction.Prediction);
             string inputColumnName = nameof(MeterData.ConsumptionDiffNormalized);
 
-            TrainedModel = null;
+            // Train Pipeline with DetectSpikeBySsa
+            var trainer = MlContext.Transforms.DetectSpikeBySsa(
+                outputColumnName,
+                inputColumnName,
+                confidence: ConfidenceInterval, // Level of confidence in a spike detection
+                pvalueHistoryLength: PValueSize, // Number of previous measurments to consider
+                trainingWindowSize: TraingSize, // Subset of data to train with 
+                seasonalityWindowSize: SeasonalitySize // Size of the largest season / shift
+            );
+
+            TrainedModel = trainer.Fit(FullDataView);
         }
 
         public SsaSpikeDetector TrainedModel { get; set; }

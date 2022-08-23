@@ -56,17 +56,23 @@ namespace IrisClustering
 
         public override void SetupAndTrainModel()
         {
-            Console.WriteLine("=============== Start of setup process ===============");
-
-            //STEP 1: Process data transformations in pipeline
-            // Concat measurement columns into "Features"
-
             // (optional) peek data concatenated
             // Common.ConsoleHelper.PeekDataViewInConsole(MlContext, TrainingDataView, dataProcessPipeline, 10);
             // Common.ConsoleHelper.PeekVectorColumnDataInConsole(MlContext, "Features", TrainingDataView, dataProcessPipeline, 10);
             Console.WriteLine("=============== End of setup process ===============");
-
             Console.WriteLine("=============== Start of training process ===============");
+            var dataProcessPipeline = MlContext.Transforms
+                .Concatenate("Features", nameof(IrisData.SepalLength),
+                nameof(IrisData.SepalWidth),
+                nameof(IrisData.PetalLength),
+                nameof(IrisData.PetalWidth)
+                );
+            
+            Trainer = MlContext.Clustering.Trainers
+                .KMeans(featureColumnName: "Features", numberOfClusters: 3);
+
+            TrainingPipeLine = dataProcessPipeline.Append(Trainer);
+            TrainedModel = TrainingPipeLine.Fit(TrainingDataView);
             // STEP 2: Create and train the model (KMeans Clustering on Features column)
         }
 
@@ -76,7 +82,11 @@ namespace IrisClustering
             // ConsoleHelper.PrintClusteringMetrics(Trainer.ToString(), metrics);
 
             // STEP4: SAVE Model
+            IDataView predictions = TrainedModel.Transform(TestDataView);
+            var metrics = MlContext.Clustering
+                .Evaluate(predictions, scoreColumnName: "Score", featureColumnName: "Features");
 
+            ConsoleHelper.PrintClusteringMetrics(Trainer.ToString(), metrics);
 
             Console.WriteLine("=============== End of training process ===============");
         }
